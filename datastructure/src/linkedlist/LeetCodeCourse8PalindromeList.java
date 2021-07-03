@@ -10,16 +10,17 @@ public class LeetCodeCourse8PalindromeList {
      */
     public ListNode reverseList(ListNode head) {
         if (head == null) return null;
-        ListNode oldHead = head, ptr = head.next;
+        // oldHead指向原head，q指向原oldHead.next
+        ListNode oldHead = head, nextNode = oldHead.next;
         while (oldHead.next != null) {
             // 取出
-            oldHead.next = ptr.next;
+            oldHead.next = nextNode.next;
             // 连接
-            ptr.next = head;
+            nextNode.next = head;
             // 更新head
-            head = ptr;
-            // ptr复位
-            ptr = oldHead.next;
+            head = nextNode;
+            // 复位
+            nextNode = oldHead.next;
         }
         return head;
     }
