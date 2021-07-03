@@ -9,16 +9,16 @@ public class LeetCodeCourse5ReverseList {
     public ListNode reverseList(ListNode head) {
         if (head == null) return null;
         // oldHead指向原head，q指向原oldHead.next
-        ListNode oldHead = head, p = oldHead.next;
+        ListNode oldHead = head, ptr = oldHead.next;
         while (oldHead.next != null) {
             // 取出
-            oldHead.next = p.next;
+            oldHead.next = ptr.next;
             // 连接
-            p.next = head;
+            ptr.next = head;
             // 更新head
-            head = p;
+            head = ptr;
             // 复位
-            p = oldHead.next;
+            ptr = oldHead.next;
         }
         return head;
     }
